@@ -2,9 +2,9 @@
 set -e
 
 # Stop the running container (if any)
-if [ "$(docker ps -q -f name=flask-app-container)" ]; then
-    docker stop flask-app-container
-    docker rm flask-app-container
+if [ "$(docker ps -q -f name=aws-container)" ]; then
+    docker stop aws-container
+    docker rm aws-container
 else
-    echo "No container named 'flask-app-container' is running."
+    echo "No container named 'aws-container' is running."
 fi
