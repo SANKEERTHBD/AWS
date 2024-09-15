@@ -26,10 +26,14 @@ jobs:
         run: |
           docker build -t sankeerthbd/aws:latest .
 
+      - name: Tag Docker image
+        run: |
+          docker tag sankeerthbd/aws:latest sankeerthbd/aws:latest
+
       - name: Push Docker image to Docker Hub
         run: |
-          docker tag sankeerthbd/aws:latest
           docker push sankeerthbd/aws:latest
+
 
       - name: Deploy Docker container via SSH
         env:
