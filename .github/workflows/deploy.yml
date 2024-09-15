@@ -28,7 +28,7 @@ jobs:
 
       - name: Push Docker image to Docker Hub
         run: |
-          docker tag sankeerthbd/aws:latest /aws:latest
+          docker tag sankeerthbd/aws:latest
           docker push sankeerthbd/aws:latest
 
       - name: Deploy Docker container via SSH
