@@ -5,7 +5,6 @@ import json
 import csv
 import os
 from werkzeug.utils import secure_filename
-# for linking flask and angular
 from flask_cors import CORS
 
 app = Flask(__name__)
@@ -44,10 +43,10 @@ def regdata():
 
     # Data transmission to db
     connection = mysql.connector.connect(
-        host='localhost',  # Since MySQL is on the same machine
+        host='localhost',  # MySQL is on the same machine
         database='skitdb',
         user='root',
-        password=''
+        password=''  # <-- Set to an empty string
     )
     sqlquery = f"insert into userdata1(name,email,pswd,phone) values('{nm}','{em}','{pswd}','{ph}')"
     print(sqlquery)
@@ -71,10 +70,10 @@ def logdata():
 
     # Data transmission to db
     connection = mysql.connector.connect(
-        host='localhost',  # Since MySQL is on the same machine
+        host='localhost',  # MySQL is on the same machine
         database='skitdb',
         user='root',
-        password=''
+        password=''  # <-- Set to an empty string
     )
     sqlquery = f"select count(*) from userdata1 where email='{em}' and pswd='{pswd}'"
     print(sqlquery)
@@ -93,10 +92,10 @@ def logdata():
 @app.route('/dashboard')
 def dashboard():
     connection = mysql.connector.connect(
-        host='localhost',  # Since MySQL is on the same machine
+        host='localhost',  # MySQL is on the same machine
         database='skitdb',
         user='root',
-        password=''
+        password=''  # <-- Set to an empty string
     )
     sqlquery = "select count(*) from dataset1 group by protocol_type"
     print(sqlquery)
@@ -118,10 +117,10 @@ def savedataset1():
     print("request :" + str(request), flush=True)
     if request.method == 'POST':
         connection = mysql.connector.connect(
-            host='localhost',  # Since MySQL is on the same machine
+            host='localhost',  # MySQL is on the same machine
             database='skitdb',
             user='root',
-            password=''
+            password=''  # <-- Set to an empty string
         )
         cursor = connection.cursor()
 
@@ -162,10 +161,10 @@ def cleardataset():
     print("request :" + str(request), flush=True)
     if request.method == 'POST':
         connection = mysql.connector.connect(
-            host='localhost',  # Since MySQL is on the same machine
+            host='localhost',  # MySQL is on the same machine
             database='skitdb',
             user='root',
-            password=''
+            password=''  # <-- Set to an empty string
         )
         sqlquery = "delete from dataset1"
         print(sqlquery)
@@ -180,10 +179,10 @@ def cleardataset():
 @app.route('/planning')
 def planning():
     connection = mysql.connector.connect(
-        host='localhost',  # Since MySQL is on the same machine
+        host='localhost',  # MySQL is on the same machine
         database='skitdb',
         user='root',
-        password=''
+        password=''  # <-- Set to an empty string
     )
     sqlquery = "select * from dataset1"
     print(sqlquery)
@@ -212,10 +211,10 @@ def predictdata1():
 
     # Data transmission to db
     connection = mysql.connector.connect(
-        host='localhost',  # Since MySQL is on the same machine
+        host='localhost',  # MySQL is on the same machine
         database='skitdb',
         user='root',
-        password=''
+        password=''  # <-- Set to an empty string
     )
     sqlquery = f"select class from dataset1 where protocol_type='{protocol_type}' and service='{service}' and flag='{flag}' and src_bytes='{src_bytes}' and dst_bytes='{dst_bytes}' and dst_host_count='{dst_host_count}' limit 2"
     print(sqlquery)
@@ -244,10 +243,10 @@ def indexdata():
 
     # Data transmission to db
     connection = mysql.connector.connect(
-        host='localhost',  # Since MySQL is on the same machine
+        host='localhost',  # MySQL is on the same machine
         database='skitdb',
         user='root',
-        password=''
+        password=''  # <-- Set to an empty string
     )
     sqlquery = f"insert into contactus(fullname,emailaddr,phone,subject) values('{fullname}','{emailaddr}','{phone}','{subject}')"
     print(sqlquery)
