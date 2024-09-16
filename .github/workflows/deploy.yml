@@ -47,4 +47,4 @@ jobs:
               docker pull ${{ secrets.DOCKER_USERNAME }}/aws:latest
               bash /home/$SERVER_USER/AWS/scripts/stop_container.sh
               bash /home/$SERVER_USER/AWS/scripts/start_container.sh
- EOF
+ EOF   
